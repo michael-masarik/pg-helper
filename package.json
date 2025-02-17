@@ -1,0 +1,22 @@
+{
+  "name": "pg-helper",
+  "type": "module",
+  "main": "cjs/index.cjs",
+  "module": "index.js",
+  "exports": {
+    "import": "./index.js",
+    "require": "./cjs/index.cjs"
+  },
+  "keywords": ["postgresql", "pg", "database", "helper", "nodejs"],
+  "author": "Michael Masarik",
+  "license": "MIT",
+  "peerDependencies": {
+    "pg": "^8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
