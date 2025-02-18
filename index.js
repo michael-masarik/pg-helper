@@ -168,6 +168,17 @@ async function insertBulk(table, dataArray) {
     const queryText = `INSERT INTO ${table} (${keys.join(', ')}) VALUES ${placeholders} RETURNING *;`;
     return await query(queryText, values.flat());
 }
+async function copy(table, file, format, header) {
+    if(format==='csv'){
+        if(header){
+            return await query(`COPY ${table} FROM '${file}' WITH (FORMAT csv, HEADER true)`);
+        }else{
+            return await query( `COPY ${table} FROM '${file}' WITH (FORMAT csv, HEADER false)`);
+        }
+    }
+    
+}
+
 
 // Exported functions
 async function updateTable(table, data, where) {
