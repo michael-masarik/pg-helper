@@ -265,7 +265,8 @@ async function addColumns(table, columns) {
     }
 }
 //Export
-export {
+//Export
+const pgHelper ={
     createTable,
     createDatabase,
     dropTable,
@@ -277,3 +278,4 @@ export {
     insertIntoTable,
     updateTable
 };
+export default pgHelper;
