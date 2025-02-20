@@ -6,8 +6,7 @@ const pool = new Pool({
     user: process.env.PG_USER || 'postgres',
     host: process.env.PG_HOST || 'localhost',
     database: process.env.PG_DATABASE || 'testdb',
-    password: process.env.PG_PASSWORD || 'password',
-    port: process.env.PG_PORT || 5432
+    port: process.env.PG_PORT || 5432,
 });
 
 /**
@@ -32,7 +31,7 @@ async function query(text, params = []) {
  * @param {Object} data - An object with column-value pairs.
  * @returns {Promise<Object>} - The inserted row.
  */
-async function insert(table, data) {
+export async function insert(table, data) {
     const keys = [];
     const values = [];
     for (const [key, value] of Object.entries(data)) {
@@ -266,6 +265,7 @@ async function addColumns(table, columns) {
 }
 //Export
 //Export
+
 const pgHelper ={
     createTable,
     createDatabase,
@@ -276,6 +276,8 @@ const pgHelper ={
     modifyColumns,
     selectFromTable,
     insertIntoTable,
-    updateTable
+    updateTable,
 };
-export default pgHelper;
+export default{
+ pgHelper,
+};
